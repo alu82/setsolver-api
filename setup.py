@@ -5,6 +5,6 @@ setup(
     packages=['setsolverapi'],
     include_package_data=True,
     install_requires=[
-        'flask','torch','torchvision'
+        'flask','torch','torchvision','opencv-python'
     ],
 )
