@@ -39,7 +39,7 @@ def get_cards(image):
     blur = cv2.GaussianBlur(gray,(1,1),1000)
     _, thresh = cv2.threshold(blur, 160, 255, cv2.THRESH_BINARY)   
     contours, _ = cv2.findContours(thresh,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
-    size_threshold = 0.7 * max(cv2.contourArea(c) for c in contours) 
+    size_threshold = 0.5 * max(cv2.contourArea(c) for c in contours) 
     contours = [c for c in contours if cv2.contourArea(c) > size_threshold]
      
     for contour in contours:
