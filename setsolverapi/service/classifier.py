@@ -2,6 +2,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import os
+import torchvision.transforms as transforms
 
 class SetCardClassifier(nn.Module):
     def __init__(self):
@@ -36,3 +37,21 @@ state_dict = torch.load(model_path, map_location=device)
 classifier = SetCardClassifier()
 classifier.load_state_dict(state_dict)
 classifier.eval()
+
+def classify_card(image):
+    mean = [0.6, 0.6, 0.6]
+    std = [0.2, 0.2, 0.2]
+    input_transforms = transforms.Compose([
+        transforms.Resize((250,160)),
+        transforms.ToTensor(),
+        transforms.Normalize(mean, std)])
+
+    timg = input_transforms(image)
+    timg = torch.unsqueeze(timg, 0)
+    return get_prediction(timg)
+
+def get_prediction(input_tensor):
+    log_probabilities = classifier.forward(input_tensor)
+    probabilities = torch.exp(log_probabilities)
+    top_prob, top_class = probabilities.topk(1, dim=1)
+    return top_prob.item(), top_class.item()
