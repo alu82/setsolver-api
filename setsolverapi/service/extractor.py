@@ -21,7 +21,7 @@ def extract_cards(image):
             card = cv2.rotate(card, cv2.ROTATE_90_CLOCKWISE)
         pil_card = transform_opencv_to_pil(card)
         cards.append(pil_card)
-    log_extraction(im, contours, cards)
+    # log_extraction(im, contours, cards)
     return cards
 
 def transform_pil_to_opencv(pil_image):
