@@ -14,7 +14,7 @@ Example image
 ![Example set board image](./assets/test01.jpeg)
 
 ## how to run
-I recommend to run the API in a docker container, although it is obviously possible to run it directly on the local machine. The build process of the docker image is a bit long (~10minutes), the first time it is build (download of pytorch), but afterwards this layer remains keeps unmodified. So the buildprocess of the image is a matter of seconds. 
+I recommend to run the API in a docker container, although it is obviously possible to run it directly on the local machine. The build process of the docker image initially takes a bit time (~10minutes for downloading pytorch), but afterwards this layer remains unmodified. So the build process of the image is a matter of seconds. 
 
 ### docker (recommended)
 #### build
@@ -56,6 +56,6 @@ For testing the API you can use the example image above.
 I created a web app that can be used together with the api backend. The web app can take a picture of a set board, when opened on a mobile device, post it to the solve endpoint and then display the response. For more details see https://github.com/alu82/setsolver-web
 
 ## the response
-The API returns a json sstructure with 2 properties:
+The API returns a json structure with 2 properties:
 - extractedCards: which cards have been extracted and detected by the model (incl. the probability). For a matching of card id to the card properties see https://github.com/alu82/setsolver-card-classifier/tree/main/images/test
 - foundSets: an array with triples of card ids which form a valid set.
