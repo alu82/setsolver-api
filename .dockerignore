@@ -2,6 +2,7 @@
 .gitignore
 .dockerignore
 DOCKERFILE
+assets
 **/__pycache__
 **/*.pyc
 *.egg-info
