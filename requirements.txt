@@ -1,3 +1,5 @@
 flask
-pytorch
+opencv-python-headless
+Pillow
+torch
 torchvision

@@ -18,7 +18,7 @@ def extract_cards(image):
         x, y, w, h = cv2.boundingRect(contour)
         card = im[y:y + h, x:x + w]
         if w > h:
-            card = cv2.rotate(card, cv2.cv2.ROTATE_90_CLOCKWISE)
+            card = cv2.rotate(card, cv2.ROTATE_90_CLOCKWISE)
         pil_card = transform_opencv_to_pil(card)
         cards.append(pil_card)
     log_extraction(im, contours, cards)

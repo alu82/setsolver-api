@@ -1,0 +1,10 @@
+.git
+.gitignore
+.dockerignore
+DOCKERFILE
+**/__pycache__
+**/*.pyc
+*.egg-info
+*.egg
+setsolverapi/log
+*.md
