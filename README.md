@@ -19,12 +19,12 @@ I recommend to run the API in a docker container, although it is obviously possi
 ### docker (recommended)
 #### build
 ```
-docker build -t setsolver-api:latest .
+docker build -t setsolver-api .
 ```
 
 #### run
 ```
-docker run -d -p 5000:5000 setsolver-api
+docker run --rm -p 5000:5000 --name setsolver-api setsolver-api
 ```
 
 ### install locally (alternative)

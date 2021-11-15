@@ -7,9 +7,9 @@ import setsolverapi.service.setfinder as sf
 
 @app.route("/")
 def root():
-    return jsonify({'msg' : 'Try POSTing to the /solve endpoint with an RGB image attachment.'})
+    return jsonify({'msg' : 'Try POSTing to the /api/solve endpoint with an RGB image attachment.'})
 
-@app.route('/solve', methods=['POST'])
+@app.route('/api/solve', methods=['POST'])
 def solve():
     image = Image.open(request.files['file'])
     cards = ex.extract_cards(image)
